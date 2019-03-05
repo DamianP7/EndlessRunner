@@ -115,8 +115,7 @@ public class HierarchyGUI
 					}
 					else
 					{
-						EditorPrefs.SetInt(go.GetInstanceID() + stringId, 0);
-						return true;
+						return false;
 					}
 				case "Can":
 					if (go.name.Contains("Canvas"))
@@ -126,8 +125,7 @@ public class HierarchyGUI
 					}
 					else
 					{
-						EditorPrefs.SetInt(go.GetInstanceID() + stringId, 0);
-						return true;
+						return false;
 					}
 				case "G":
 					if (go.name.Contains("GameManager"))
@@ -137,8 +135,7 @@ public class HierarchyGUI
 					}
 					else
 					{
-						EditorPrefs.SetInt(go.GetInstanceID() + stringId, 0);
-						return true;
+						return false;
 					}
 				case "P":
 					if (go.name.Contains("Player"))
@@ -148,8 +145,7 @@ public class HierarchyGUI
 					}
 					else
 					{
-						EditorPrefs.SetInt(go.GetInstanceID() + stringId, 0);
-						return true;
+						return false;
 					}
 				default:
 					return false;
