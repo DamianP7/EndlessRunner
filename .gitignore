@@ -6,7 +6,7 @@
 Assets/AssetStoreTools*
 
 # Custom ignores
-/tmp
+tmp/
 
 # Visual Studio cache directory
 .vs/
