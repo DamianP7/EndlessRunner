@@ -8,7 +8,7 @@ public class MaterialScroller : MonoBehaviour
 	Vector2 offset;
 
 	[Range(-10, 10)]
-	public int xVelocity, yVelocity;
+	public float xVelocity, yVelocity;
 
 	private void OnValidate()
 	{

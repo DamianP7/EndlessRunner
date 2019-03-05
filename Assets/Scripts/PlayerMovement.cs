@@ -12,7 +12,7 @@ public enum PlayerState
 public class PlayerMovement : MonoBehaviour
 {
 	public PlayerState playerState;
-	[SerializeField] float jumpHeight, jumpSpeed, maxTimeInAir;
+	[SerializeField] float jumpHeight, jumpSpeed, maxTimeInAir, fallingSpeed;
 
 	float timeInAir, jumpPressedTime;
 	bool jumpHolding, doubleJumped;
@@ -73,13 +73,12 @@ public class PlayerMovement : MonoBehaviour
 			}
 			else
 			{
-				transform.position = new Vector3(transform.position.x, transform.position.y - jumpSpeed * Time.deltaTime);
+				transform.position = new Vector3(transform.position.x, transform.position.y - fallingSpeed * Time.deltaTime);
 			}
 		}
 
 		JumpController();
 
-		//Debug.Log(jumpPressedTime + "	" + timeInAir);
 	}
 
 	void JumpController()
@@ -117,5 +116,11 @@ public class PlayerMovement : MonoBehaviour
 		{
 			jumpHolding = false;
 		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Ground")
+			playerState = PlayerState.Running;
 	}
 }

@@ -14,5 +14,11 @@ public class GameManager : MonoBehaviour
 			return instance;
 		}
 	}
+
+
 	public float groundLevel;
+	public float speed;
+
+
+
 }
