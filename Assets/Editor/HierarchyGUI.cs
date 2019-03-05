@@ -5,7 +5,7 @@ using UnityEditor;
 [InitializeOnLoad]
 public class HierarchyGUI
 {
-	static Texture2D UITexture, canvasTexture, cameraTexture, gameManagerTexture, playerTexture;
+	static Texture2D UITexture, canvasTexture, cameraTexture, gameManagerTexture, playerTexture, segmentTexture, levelManagerTexture;
 	static GUIStyle style;
 
 	//constructor
@@ -18,7 +18,9 @@ public class HierarchyGUI
 		canvasTexture = (Texture2D)Resources.Load("Editor/Canvas Texture");
 		cameraTexture = (Texture2D)Resources.Load("Editor/Camera Texture");
 		playerTexture = (Texture2D)Resources.Load("Editor/Player Texture");
+		segmentTexture = (Texture2D)Resources.Load("Editor/Segment Texture");
 		gameManagerTexture = (Texture2D)Resources.Load("Editor/GameManager Texture");
+		levelManagerTexture = (Texture2D)Resources.Load("Editor/LevelManager Texture");
 
 		//new guistyle for the markers
 		style = new GUIStyle();
@@ -94,6 +96,26 @@ public class HierarchyGUI
 			GUI.Label(rect, "", style);
 		}
 
+		//Segment marker
+		if (CheckInEditor(go, "S"))
+		{
+			rect.x = rect.width - 15;
+			rect.width = 15;
+			rect.height = rect.height - 2;
+			style.normal.background = segmentTexture;
+			GUI.Label(rect, "", style);
+		}
+
+		//Level Manager marker
+		if (CheckInEditor(go, "L"))
+		{
+			rect.x = rect.width - 15;
+			rect.width = 15;
+			rect.height = rect.height - 2;
+			style.normal.background = levelManagerTexture;
+			GUI.Label(rect, "", style);
+		}
+
 	}
 
 	static bool CheckInEditor(GameObject go, string stringId)
@@ -139,6 +161,26 @@ public class HierarchyGUI
 					}
 				case "P":
 					if (go.name.Contains("Player"))
+					{
+						EditorPrefs.SetInt(go.GetInstanceID() + stringId, 1);
+						return true;
+					}
+					else
+					{
+						return false;
+					}
+				case "S":
+					if (go.name.Contains("Segment"))
+					{
+						EditorPrefs.SetInt(go.GetInstanceID() + stringId, 1);
+						return true;
+					}
+					else
+					{
+						return false;
+					}
+				case "L":
+					if (go.name.Contains("LevelManager"))
 					{
 						EditorPrefs.SetInt(go.GetInstanceID() + stringId, 1);
 						return true;
@@ -238,6 +280,41 @@ public class HierarchyGUI
 			}
 		}
 	}
+
+	[MenuItem("GameObject/Marker/Segment", false, 4)]
+	static void AddSegmentMarker()
+	{
+		foreach (Object o in Selection.gameObjects)
+		{
+			if (EditorPrefs.GetInt(o.GetInstanceID() + "S", 0) == 0)
+			{
+				EditorPrefs.SetInt(o.GetInstanceID() + "S", 1);
+			}
+
+			else
+			{
+				EditorPrefs.SetInt(o.GetInstanceID() + "S", 0);
+			}
+		}
+	}
+
+	[MenuItem("GameObject/Marker/LevelManager", false, 5)]
+	static void AddLevelManagerMarker()
+	{
+		foreach (Object o in Selection.gameObjects)
+		{
+			if (EditorPrefs.GetInt(o.GetInstanceID() + "L", 0) == 0)
+			{
+				EditorPrefs.SetInt(o.GetInstanceID() + "L", 1);
+			}
+
+			else
+			{
+				EditorPrefs.SetInt(o.GetInstanceID() + "L", 0);
+			}
+		}
+	}
+
 
 	//Remove all markers
 	[MenuItem("GameObject/Marker/Remove", false, 13)]
