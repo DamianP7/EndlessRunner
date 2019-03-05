@@ -5,6 +5,9 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# Custom ignores
+/tmp
+
 # Visual Studio cache directory
 .vs/
 
