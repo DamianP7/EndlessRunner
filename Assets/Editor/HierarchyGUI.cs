@@ -196,7 +196,7 @@ public class HierarchyGUI
 	}
 
 
-	[MenuItem("GameObject/Marker/Toggle", false, 0)]
+	[MenuItem("GameObject/Marker/Toggle %#T", false, 0)]
 	static void AddToggle()
 	{
 		foreach (Object o in Selection.gameObjects)

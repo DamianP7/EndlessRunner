@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - DeathZone
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -38,6 +40,27 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fog
+    uniqueID: 3565377133
+    locked: 0
+  - name: Clouds
+    uniqueID: 3342460427
+    locked: 0
+  - name: ThirdPlan
+    uniqueID: 784589745
+    locked: 0
+  - name: SecondPlan
+    uniqueID: 3433311139
+    locked: 0
+  - name: FirstPlan
+    uniqueID: 3531362237
+    locked: 0
+  - name: Ground
+    uniqueID: 468241733
+    locked: 0
+  - name: ThingsOnGround
+    uniqueID: 582897311
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

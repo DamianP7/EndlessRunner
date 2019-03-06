@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
 
 	int lastSegment, activeSegment, newSegment;
 
+	public List<GameObject> smallObjects;
+
 
 	void Start()
 	{
@@ -21,12 +23,15 @@ public class LevelManager : MonoBehaviour
 
 	void Update()
 	{
-		segments[lastSegment].Move(GameManager.Instance.speed * Time.deltaTime);
-		segments[activeSegment].Move(GameManager.Instance.speed * Time.deltaTime);
-		//segments[newSegment].Move(GameManager.Instance.speed * Time.deltaTime);
+		if (GameManager.Instance.gameState == GameState.Playing)
+		{
+			segments[lastSegment].Move(GameManager.Instance.speed * Time.deltaTime);
+			segments[activeSegment].Move(GameManager.Instance.speed * Time.deltaTime);
+			//segments[newSegment].Move(GameManager.Instance.speed * Time.deltaTime);
 
-		if (segments[lastSegment].transform.position.x < stopPositionX)
-			FindNextSegment();
+			if (segments[lastSegment].transform.position.x < stopPositionX)
+				FindNextSegment();
+		}
 	}
 
 	void FindNextSegment()
@@ -39,6 +44,7 @@ public class LevelManager : MonoBehaviour
 		} while (rand == activeSegment || rand == newSegment);
 		lastSegment = activeSegment;
 		activeSegment = rand;
+		segments[activeSegment].SetupSegment();
 		//newSegment = rand;
 	}
 }

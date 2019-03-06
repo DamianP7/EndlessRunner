@@ -5,11 +5,17 @@ using UnityEngine;
 public class Segment : MonoBehaviour
 {
 	public Vector3 size;
+	public int difficultyLevel;
 	private Vector3 startPosition;
 
 	private void Awake()
 	{
 		startPosition = transform.position;
+	}
+
+	public void SetupSegment()
+	{
+
 	}
 
 	public void Move(float speed)
