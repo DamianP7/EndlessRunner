@@ -6,7 +6,8 @@ public enum PlayerState
 {
 	Running,
 	Jumping,
-	Falling
+	Falling,
+	Stop
 }
 
 public class PlayerMovement : MonoBehaviour
@@ -24,18 +25,13 @@ public class PlayerMovement : MonoBehaviour
 		playerState = PlayerState.Running;
 		playerPositionJumping = transform.position;
 	}
-
-	public void Jump()
-	{
-
-	}
-
-	public void Slide()
-	{
-
-	}
-
+	
 	private void Update()
+	{
+		JumpMovement();
+	}
+
+	void JumpMovement()
 	{
 		if (playerState == PlayerState.Jumping)
 		{
@@ -48,19 +44,10 @@ public class PlayerMovement : MonoBehaviour
 			{
 				playerState = PlayerState.Falling;
 			}
-			else if (transform.position.y > playerPositionJumping.y + jumpHeight)
-			{
-
-			}
 			else
 			{
-				//float jump = jumpHeight - (transform.position.y - playerPositionJumping.y) / (jumpHeight);
-
-
-
 				float jump = 1 - (timeInAir / jumpPressedTime);
-
-				Debug.Log("jmp speed: " + jump);
+				
 				transform.position = new Vector3(transform.position.x, transform.position.y + jump * jumpSpeed * Time.deltaTime);
 			}
 		}
@@ -76,45 +63,39 @@ public class PlayerMovement : MonoBehaviour
 				transform.position = new Vector3(transform.position.x, transform.position.y - fallingSpeed * Time.deltaTime);
 			}
 		}
-
-		JumpController();
-
 	}
 
-	void JumpController()
+	public void JumpButtonUp()
 	{
-		//jump
-		if (Input.GetButtonDown("Jump"))
-		{
-			if (playerState == PlayerState.Running)
-			{
-				jumpPressedTime = 0.1f;
-				timeInAir = 0;
-				doubleJumped = false;
-				playerPositionJumping = transform.position;
-				playerState = PlayerState.Jumping;
-				jumpHolding = true;
-			}
-			// double jump
-			else if (!doubleJumped)
-			{
-				jumpPressedTime = 0.2f;
-				timeInAir = 0;
-				doubleJumped = true;
-				playerPositionJumping = transform.position;
-				playerState = PlayerState.Jumping;
-				jumpHolding = true;
-			}
-		}
-		// button holding
-		if (Input.GetButton("Jump") && playerState == PlayerState.Jumping && jumpHolding && jumpPressedTime < maxTimeInAir)
-		{
+		jumpHolding = false;
+	}
+
+	public void JumpHold()
+	{
+		if (playerState == PlayerState.Jumping && jumpHolding && jumpPressedTime < maxTimeInAir)
 			jumpPressedTime += Time.deltaTime;
-		}
-		// button up
-		else if (Input.GetButtonUp("Jump"))
+	}
+
+	public void JumpPressed()
+	{
+		if (playerState == PlayerState.Running)
 		{
-			jumpHolding = false;
+			jumpPressedTime = 0.1f;
+			timeInAir = 0;
+			doubleJumped = false;
+			playerPositionJumping = transform.position;
+			playerState = PlayerState.Jumping;
+			jumpHolding = true;
+		}
+		// double jump
+		else if (!doubleJumped)
+		{
+			jumpPressedTime = 0.2f;
+			timeInAir = 0;
+			doubleJumped = true;
+			playerPositionJumping = transform.position;
+			playerState = PlayerState.Jumping;
+			jumpHolding = true;
 		}
 	}
 
@@ -122,5 +103,10 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Ground")
 			playerState = PlayerState.Running;
+		else if (collision.gameObject.tag == "DeathZone")
+		{
+			playerState = PlayerState.Stop;
+			GameManager.Instance.gameState = GameState.GameOver;
+		}
 	}
 }

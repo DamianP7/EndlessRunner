@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+	Playing,
+	GameOver
+}
+
 public class GameManager : MonoBehaviour
 {
 	private static GameManager instance;
@@ -15,10 +21,13 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-
+	public GameState gameState;
 	public float groundLevel;
 	public float speed;
 
-
+	private void Awake()
+	{
+		gameState = GameState.Playing;
+	}
 
 }
