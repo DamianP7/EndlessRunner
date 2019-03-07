@@ -13,12 +13,13 @@ public enum PlayerMovementState
 public class PlayerMovement : MonoBehaviour
 {
 	public PlayerMovementState playerState;
-	[SerializeField] float jumpHeight, jumpSpeed, maxTimeInAir, fallingSpeed, timeFalling;
+	[SerializeField] float jumpHeight, jumpSpeed, maxTimeInAir, fallingSpeed, timeFalling, jumpForce, jumpImpuls;
 
 	float timeInAir, jumpPressedTime;
 	bool jumpHolding, doubleJumped;
 	Vector3 playerPositionJumping, playerPositionFalling;
 
+	public float mas;
 
 	private void Start()
 	{
@@ -39,31 +40,25 @@ public class PlayerMovement : MonoBehaviour
 			if (transform.position.y > playerPositionJumping.y + jumpHeight)
 			{
 				playerState = PlayerMovementState.Falling;
+				//GetComponent<Rigidbody2D>().gravityScale = mas;
+
 			}
 			else if (timeInAir > jumpPressedTime)
 			{
 				playerState = PlayerMovementState.Falling;
+				//GetComponent<Rigidbody2D>().gravityScale = mas;
 			}
 			else
 			{
 				float jump = 1 - (timeInAir / jumpPressedTime);
 
-				transform.position = new Vector3(transform.position.x, transform.position.y + jump * jumpSpeed * Time.deltaTime);
+				GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce * jump));
+
+				//transform.position = new Vector3(transform.position.x, transform.position.y + jump * jumpSpeed * Time.deltaTime);
 			}
 		}
 		else if (playerState == PlayerMovementState.Falling)
 		{
-			timeFalling += Time.deltaTime;
-			if (transform.position.y < GameManager.Instance.groundLevel)
-			{
-				transform.position = new Vector3(transform.position.x, GameManager.Instance.groundLevel);
-				playerState = PlayerMovementState.Running;
-			}
-			else
-			{
-				float fall = timeFalling / jumpPressedTime;
-				transform.position = new Vector3(transform.position.x, transform.position.y - fallingSpeed * fall * Time.deltaTime);
-			}
 		}
 	}
 
@@ -89,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
 			playerState = PlayerMovementState.Jumping;
 			jumpHolding = true;
 			timeFalling = 0;
+			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpImpuls), ForceMode2D.Impulse);
 		}
 		// double jump
 		else if (!doubleJumped)
@@ -100,13 +96,20 @@ public class PlayerMovement : MonoBehaviour
 			playerState = PlayerMovementState.Jumping;
 			jumpHolding = true;
 			timeFalling = 0;
+			GetComponent<Rigidbody2D>().gravityScale = 1;
+			GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpImpuls), ForceMode2D.Impulse);
 		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Ground")
+		{
 			playerState = PlayerMovementState.Running;
+
+			//GetComponent<Rigidbody2D>().gravityScale = 1;
+		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
