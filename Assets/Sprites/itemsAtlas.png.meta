@@ -5,6 +5,14 @@ TextureImporter:
     21300000: barrel1
     21300002: barrel2
     21300004: box
+    21300006: box1
+    21300008: box2
+    21300010: log1
+    21300012: log2
+    21300014: barrel_weapons1
+    21300016: barrel_weapons2
+    21300018: log3
+    21300020: bush1
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -101,18 +109,18 @@ TextureImporter:
       name: barrel1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 451
-        height: 514
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 21
+        y: 1787
+        width: 291
+        height: 328
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4ca8399a7a1e5044b73101ac3c0644f
+      spriteID: ab1bc71ebb35fb1408846d88acf985f1
       vertices: []
       indices: 
       edges: []
@@ -121,38 +129,178 @@ TextureImporter:
       name: barrel2
       rect:
         serializedVersion: 2
-        x: 492
-        y: 0
-        width: 451
-        height: 514
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 350
+        y: 1787
+        width: 288
+        height: 328
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00afaac34a2648d4da94a78a98e7524f
+      spriteID: 05b818a22df389e48878c0ae2c88a30c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: box
+      name: box1
       rect:
         serializedVersion: 2
-        x: 984
-        y: 0
-        width: 512
-        height: 514
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 676
+        y: 1787
+        width: 326
+        height: 327
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db4bc491da90eff408dad8d7a934fc93
+      spriteID: f19bfb87af4b44d45a776df4792814ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: box2
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1789
+        width: 327
+        height: 326
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16393012ed351dd42b6a929e3ca09f33
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: log1
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 1789
+        width: 329
+        height: 330
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00eeb342604f55d4db7a9bc60f0be6bd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: log2
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 1788
+        width: 331
+        height: 331
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6aad2704947f8f4eb73843447cec19e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrel_weapons1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1308
+        width: 289
+        height: 441
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31064ad9bcbe8fe458f4e9005df486df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrel_weapons2
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 1307
+        width: 289
+        height: 441
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95132a6fbddc301458432e7ff8041feb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: log3
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 1309
+        width: 331
+        height: 333
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5affb8033b7c84d880bb40132d4c62
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bush1
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1308
+        width: 631
+        height: 351
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd4a02b079b0286468a9728443a33e1e
       vertices: []
       indices: 
       edges: []

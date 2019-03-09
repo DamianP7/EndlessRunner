@@ -64,7 +64,7 @@ public class BackgroundManager : MonoBehaviour
 			for (int i = 0; i < activeClouds.Count; i++)
 			{
 				activeClouds[i].transform.position = new Vector3(activeClouds[i].transform.position.x - speedOfClouds * speed, activeClouds[i].transform.position.y);
-				Debug.Log("s: " + speed + "po: " + activeClouds[i].transform.position);
+			//	Debug.Log("s: " + speed + "po: " + activeClouds[i].transform.position);
 				if (activeClouds[i].transform.position.x < stopForClouds)
 				{
 					if (cloudRandomHeight)

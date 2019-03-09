@@ -315,6 +315,23 @@ public class HierarchyGUI
 		}
 	}
 
+	[MenuItem("GameObject/Marker/Camera", false, 6)]
+	static void AddCameraMarker()
+	{
+		foreach (Object o in Selection.gameObjects)
+		{
+			if (EditorPrefs.GetInt(o.GetInstanceID() + "Cam", 0) == 0)
+			{
+				EditorPrefs.SetInt(o.GetInstanceID() + "Cam", 1);
+			}
+
+			else
+			{
+				EditorPrefs.SetInt(o.GetInstanceID() + "Cam", 0);
+			}
+		}
+	}
+
 
 	//Remove all markers
 	[MenuItem("GameObject/Marker/Remove", false, 13)]
