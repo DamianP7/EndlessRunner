@@ -120,5 +120,9 @@ public class PlayerMovement : MonoBehaviour
 			playerState = PlayerMovementState.Stop;
 			GameManager.Instance.gameState = GameState.GameOver;
 		}
+		else if (collision.gameObject.tag == "Coin")
+		{
+			collision.GetComponent<Coin>().PickUp();
+		}
 	}
 }

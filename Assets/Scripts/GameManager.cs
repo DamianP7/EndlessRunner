@@ -27,10 +27,11 @@ public class GameManager : MonoBehaviour
 	public float speed;
 	public float time = 0;
 	int coins = 0;
+	public int goldCoinValue, silverCoinValue;
 
 	public float mSpeed;
 
-	public int Coint
+	public int Coins
 	{
 		get
 		{
