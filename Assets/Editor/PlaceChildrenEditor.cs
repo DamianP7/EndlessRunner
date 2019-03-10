@@ -16,13 +16,19 @@ public class PlaceChildrenEditor : Editor
 		PlaceChildren myScript = (PlaceChildren)target;
 		width = myScript.width;
 
+
 		if (GUILayout.Button("Place Children"))
 		{
+			if (myScript.gameObject.name == "Segments")
+			{
+				myScript.MoveChildren();
+				return;
+			}
 			if (myScript.transform.GetChild(0).GetComponent<Obstacle>() == null)
 			{
 				if (myScript.transform.GetChild(0).GetComponent<PlaceChildren>() == null)
 					return;
-				else
+				else if(myScript.transform.GetChild(0).GetComponent<PlaceChildren>() != null)
 				{
 					startPos = myScript.transform.position;
 					for (int i = 0; i < myScript.transform.childCount; i++)

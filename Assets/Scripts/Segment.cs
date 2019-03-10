@@ -70,11 +70,18 @@ public class Segment : MonoBehaviour
 		int cosmeticsQuantity = Random.Range(minCosmetics, maxCosmetics);
 		expectedDiff -= segmentDifficulty;
 
+		int check = 0;
 		for (int i = 0; i < cosmeticsQuantity; i++)
 		{
 			do
 			{
 				cosmeticPos = Random.Range(0, cosmeticPositions.Count);
+				check++;
+				if (check > 100)
+				{
+					Debug.LogError("Error in SetupSegment(first do-while) in " + transform.name);
+					return;
+				}
 			} while (usedCosmeticPositions.Contains(cosmeticPos));
 
 			usedCosmeticPositions.Add(cosmeticPos);
@@ -90,6 +97,12 @@ public class Segment : MonoBehaviour
 			do
 			{
 				obstaclePos = Random.Range(0, obstaclePositions.Count);
+				check++;
+				if (check > 100)
+				{
+					Debug.LogError("Error in SetupSegment(second do-while) in " + transform.name);
+					return;
+				}
 			} while (usedObstaclesPositions.Contains(obstaclePos));
 
 			//TODO: temp

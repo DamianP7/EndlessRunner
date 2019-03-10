@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum GameState
 {
@@ -24,10 +25,35 @@ public class GameManager : MonoBehaviour
 	public GameState gameState;
 	public float groundLevel;
 	public float speed;
+	public float time = 0;
+	int coins = 0;
+
+	public float mSpeed;
+
+	public int Coint
+	{
+		get
+		{
+			return coins;
+		}
+		set
+		{
+			coins = value;
+			coinsText.text = coins.ToString();
+		}
+	}
+
+	[SerializeField] Text distanceText, coinsText;
 
 	private void Awake()
 	{
 		gameState = GameState.Playing;
+	}
+
+	private void Update()
+	{
+		time += Time.deltaTime * speed / mSpeed;
+		distanceText.text = Mathf.RoundToInt(time).ToString() + " m";
 	}
 
 }

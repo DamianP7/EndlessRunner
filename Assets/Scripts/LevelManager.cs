@@ -27,9 +27,10 @@ public class LevelManager : MonoBehaviour
 		lastSegment = 0;
 		activeSegment = 1;
 
-		segments[lastSegment].transform.position = new Vector3(0, 0, 0);
+		segments[lastSegment].transform.position = new Vector3(0, -0.1f, 0);
 		segments[lastSegment].SetupSegment(0);
-		segments[activeSegment].SetupSegment(5);	//TODO: temp const 5
+		segments[activeSegment].SetupSegment(5);    //TODO: temp const 5
+		segments[activeSegment].transform.position = new Vector3(20, -0.1f, 0);
 	}
 
 	void Update()
@@ -68,15 +69,31 @@ public class LevelManager : MonoBehaviour
 		}
 
 		if (availableSegments.Count == 0)
-			return;
+		{
+			availableSegments = new List<Segment>();
+			Debug.LogError("No available segments");
+			for (int i = 0; i < segments.Length; i++)
+			{
+				if (segments[i].maxDifficultyLevel > 0)
+					availableSegments.Add(segments[i]);
+			}
+		}
 
+		int check = 0;
 		do
 		{
 			rand = Random.Range(0, availableSegments.Count);
+			check++;
+			if (check > 100)
+			{
+				Debug.LogError("Error in FindNextSegment in " + transform.name);
+				return;
+			}
 		} while (rand == activeSegment || rand == newSegment);
 
 		lastSegment = activeSegment;
 		activeSegment = rand;
+		segments[activeSegment].transform.position = new Vector3(20, -0.1f, 0);
 		segments[activeSegment].SetupSegment(diff);
 		//newSegment = rand;
 	}

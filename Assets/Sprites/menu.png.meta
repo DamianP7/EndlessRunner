@@ -1,28 +1,19 @@
 fileFormatVersion: 2
-guid: 09cb314a2fd389249a3bc9432ca114a5
+guid: 5d64c86271f96fd4f8b0f4da4fc6462f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: mountain1
-    21300002: mountain2
-    21300004: mountain3
-    21300006: mountain4
-    21300008: tree1
-    21300010: tree2
-    21300012: tree3
-    21300014: tree4
-    21300016: tree5
-    21300018: tree6
-    21300020: grass1
-    21300022: grass2
-    21300024: grass3
-    21300026: grass4
-    21300028: stone1
-    21300030: stone2
-    21300032: stone3
-    21300034: bush1
-    21300036: hills1
-    21300038: hills2
-    21300040: hills3
+    21300000: menu_play
+    21300002: menu_up
+    21300004: menu_panel
+    21300006: menu_sound
+    21300008: menu_coins
+    21300010: menu_music
+    21300012: menu_distance
+    21300014: menu_options
+    21300016: menu_i
+    21300018: menu_disable_sign
+    21300020: menu_cross
+    21300022: menu_pause
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -116,281 +107,241 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mountain1
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 1696
-        width: 536
-        height: 396
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35ee1954d27852d4ba06ad27eb6e183c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mountain2
-      rect:
-        serializedVersion: 2
-        x: 601
-        y: 1696
-        width: 541
-        height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cbf8c86f39fe6294f9218bd612073a38
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mountain3
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 1383
-        width: 542
-        height: 246
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e54259d29e00e1041ae50a228ecd94c8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mountain4
-      rect:
-        serializedVersion: 2
-        x: 601
-        y: 1383
-        width: 541
-        height: 300
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2fd2010bcabd1a440a844789f6f423f7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tree1
+      name: menu_play
       rect:
         serializedVersion: 2
         x: 19
-        y: 1061
-        width: 209
-        height: 304
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 1577
+        width: 537
+        height: 538
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18d0f2178efcf0a43b88f8446ca25d7a
+      spriteID: 9b1302b1452af644aae7abdb07f32057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree2
+      name: menu_up
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1061
-        width: 208
-        height: 285
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 575
+        y: 1847
+        width: 271
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 765c9c7da54ceed4094f9b9bb81420b5
+      spriteID: a25649be7db08fe41af447a2d6da2d6b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree3
+      name: menu_panel
       rect:
         serializedVersion: 2
-        x: 493
-        y: 1062
-        width: 208
-        height: 233
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 863
+        y: 1716
+        width: 175
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2318b9aab2740e4ba894fb5449a950e
+      spriteID: 3f81b5596d51b9546b730ea83a0e7335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree4
+      name: menu_sound
       rect:
         serializedVersion: 2
-        x: 730
-        y: 1062
-        width: 105
-        height: 170
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1056
+        y: 2040
+        width: 85
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50181585305abc941ac0648d216c2139
+      spriteID: 8dce6261b1d7839418650408762b71e8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree5
+      name: menu_coins
       rect:
         serializedVersion: 2
-        x: 864
-        y: 1060
-        width: 107
-        height: 225
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1163
+        y: 1975
+        width: 374
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6de460ff79826d9469105433054281dd
+      spriteID: d2d1c9d2b3975f048ba9043f2b44d4b2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree6
+      name: menu_music
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 1062
-        width: 105
-        height: 252
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1053
+        y: 1931
+        width: 69
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9aa70067a8393b429d5e20790b931c6
+      spriteID: 795aef90eddec7849ae6cb035667cb47
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bush1
+      name: menu_distance
       rect:
         serializedVersion: 2
-        x: 1123
-        y: 1062
-        width: 209
-        height: 117
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1163
+        y: 1822
+        width: 328
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b44607dcb67b2b0419bd1a597192ea5c
+      spriteID: 831b5d9174b037e428d5f862dd0f6d1e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hills1
+      name: menu_options
       rect:
         serializedVersion: 2
-        x: 20
-        y: 961
-        width: 1756
-        height: 81
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 577
+        y: 1571
+        width: 273
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efe7f2dd44ee80649aa2e704abae14b7
+      spriteID: 9bc8073f77bd7b044a8f95d78cd13e67
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hills2
+      name: menu_i
       rect:
         serializedVersion: 2
-        x: 22
-        y: 845
-        width: 1756
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1049
+        y: 1826
+        width: 39
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 032ae955908224e4f98a0a642d2622ef
+      spriteID: b566e9ae83fb25a4bae0a4eecb94a39a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hills3
+      name: menu_disable_sign
       rect:
         serializedVersion: 2
-        x: 22
-        y: 755
-        width: 1756
-        height: 71
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 903
+        y: 1604
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 640894ea0bedf47439226790c68576f9
+      spriteID: 0deb0b46adc0dfc4994fe5c6695bdb18
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_cross
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1288
+        width: 271
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc1d36a9b925f0409d46ed5b617f25b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_pause
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 1287
+        width: 270
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 598a5b3055d0667438e2cdda8e7521ea
       vertices: []
       indices: 
       edges: []
@@ -398,7 +349,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f2c9186adad078f43a126129dd125a43
+    spriteID: bcd229c78920c1f4ab1b729df01c8902
     vertices: []
     indices: 
     edges: []
