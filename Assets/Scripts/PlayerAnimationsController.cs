@@ -19,6 +19,7 @@ public class PlayerAnimationsController : MonoBehaviour
 		{
 			animator.enabled = false;
 		}
-
+		else
+			animator.enabled = true;
 	}
 }

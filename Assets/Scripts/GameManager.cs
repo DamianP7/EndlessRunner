@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public enum GameState
 {
 	Playing,
-	GameOver
+	GameOver,
+	Paused
 }
 
 public class GameManager : MonoBehaviour
@@ -30,8 +31,10 @@ public class GameManager : MonoBehaviour
 	public int timeToIncrementSpeed;
 	int timeToIncrement;
 	public int goldCoinValue, silverCoinValue;
-
 	public float mSpeed;
+
+	[SerializeField] GameObject background, pausedWindow;
+	[SerializeField] SettingsPanel settingsPanel;
 
 	public int Coins
 	{
@@ -56,17 +59,38 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
-		time += Time.deltaTime;
-		distanceText.text = Mathf.RoundToInt(time * speed / mSpeed).ToString() + " m";
-		if (time > timeToIncrement)
+		if (gameState == GameState.Playing)
 		{
-			timeToIncrement += timeToIncrementSpeed;
-			speed += 0.1f;
+			time += Time.deltaTime;
+			distanceText.text = Mathf.RoundToInt(time * speed / mSpeed).ToString() + " m";
+			if (time > timeToIncrement)
+			{
+				timeToIncrement += timeToIncrementSpeed;
+				speed += 0.1f;
+			}
+			if (DeveloperOptions.Instance.gameManagerCanvas.timeTotal)
+				DeveloperOptions.Instance.timeTotal.text = (time / 60).ToString("00") + (time % 60).ToString("00:00");
+			if (DeveloperOptions.Instance.gameManagerCanvas.speed)
+				DeveloperOptions.Instance.speed.text = speed.ToString();
 		}
-		if (DeveloperOptions.Instance.gameManagerCanvas.timeTotal)
-			DeveloperOptions.Instance.timeTotal.text = (time / 60).ToString("00") + (time % 60).ToString("00:00");
-		if (DeveloperOptions.Instance.gameManagerCanvas.speed)
-			DeveloperOptions.Instance.speed.text = speed.ToString();
+	}
+
+	public void Pause()
+	{
+		if (gameState == GameState.Playing)
+		{
+			gameState = GameState.Paused;
+			background.SetActive(true);
+			pausedWindow.SetActive(false);
+			settingsPanel.MovePanel();
+		}
+		else if (gameState == GameState.Paused)
+		{
+			gameState = GameState.Playing;
+			background.SetActive(false);
+			pausedWindow.SetActive(true);
+			settingsPanel.MovePanel();
+		}
 	}
 
 }

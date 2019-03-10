@@ -16,47 +16,77 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] float jumpHeight, jumpSpeed, maxTimeInAir, fallingSpeed, timeFalling, jumpForce, jumpImpuls, fallingForce;
 
 	float timeInAir, jumpPressedTime;
-	bool jumpHolding, doubleJumped;
+	bool jumpHolding, doubleJumped, paused;
+	PlayerMovementState lastState;
 	Vector3 playerPositionJumping, playerPositionFalling;
+	Rigidbody2D rigidbody2d;
 
 	private void Start()
 	{
 		playerState = PlayerMovementState.Running;
 		playerPositionJumping = transform.position;
+		rigidbody2d = GetComponent<Rigidbody2D>();
 	}
 
-	private void Update()
+	private void FixedUpdate()
 	{
-		JumpMovement();
+		if (GameManager.Instance.gameState == GameState.Playing)
+		{
+			if (paused)
+			{
+				UnpauseMovement();
+				paused = false;
+			}
+			JumpMovement();
+		}
+		else
+		{
+			paused = true;
+			PauseMovement();
+		}
+	}
+
+	public void PauseMovement()
+	{
+		lastState = playerState;
+		playerState = PlayerMovementState.Stop;
+		rigidbody2d.bodyType = RigidbodyType2D.Static;
+	}
+
+	public void UnpauseMovement()
+	{
+		playerState = lastState;
+		rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
 	}
 
 	void JumpMovement()
 	{
 		if (playerState == PlayerMovementState.Jumping)
 		{
-			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -fallingSpeed));
+			rigidbody2d.AddForce(new Vector2(0, -fallingSpeed));
 			timeInAir += Time.deltaTime;
 			if (transform.position.y > playerPositionJumping.y + jumpHeight)
 			{
 				playerState = PlayerMovementState.Falling;
-
+				GameSoundManager.Instance.PlayWee();
 			}
 			else if (timeInAir > jumpPressedTime)
 			{
 				playerState = PlayerMovementState.Falling;
+				GameSoundManager.Instance.PlayWee();
 			}
 			else
 			{
 				float jump = 1 - (timeInAir / jumpPressedTime);
 
-				GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce * jump));
+				rigidbody2d.AddForce(new Vector2(0, jumpForce * jump));
 
 				//transform.position = new Vector3(transform.position.x, transform.position.y + jump * jumpSpeed * Time.deltaTime);
 			}
 		}
 		else if (playerState == PlayerMovementState.Falling)
 		{
-			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -fallingForce));
+			rigidbody2d.AddForce(new Vector2(0, -fallingForce));
 		}
 	}
 
@@ -82,7 +112,8 @@ public class PlayerMovement : MonoBehaviour
 			playerState = PlayerMovementState.Jumping;
 			jumpHolding = true;
 			timeFalling = 0;
-			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpImpuls), ForceMode2D.Impulse);
+			rigidbody2d.AddForce(new Vector2(0, jumpImpuls), ForceMode2D.Impulse);
+			GameSoundManager.Instance.PlayJump();
 		}
 		// double jump
 		else if (!doubleJumped)
@@ -94,8 +125,9 @@ public class PlayerMovement : MonoBehaviour
 			playerState = PlayerMovementState.Jumping;
 			jumpHolding = true;
 			timeFalling = 0;
-			GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpImpuls), ForceMode2D.Impulse);
+			rigidbody2d.velocity = new Vector2(0, 0);
+			rigidbody2d.AddForce(new Vector2(0, jumpImpuls), ForceMode2D.Impulse);
+			GameSoundManager.Instance.PlayJump();
 		}
 	}
 
@@ -116,10 +148,12 @@ public class PlayerMovement : MonoBehaviour
 			Debug.Log("Death");
 			playerState = PlayerMovementState.Stop;
 			GameManager.Instance.gameState = GameState.GameOver;
+			GameSoundManager.Instance.PlayDeath();
 		}
 		else if (collision.gameObject.tag == "Coin")
 		{
 			collision.GetComponent<Coin>().PickUp();
+			GameSoundManager.Instance.PlayCoin();
 		}
 	}
 }

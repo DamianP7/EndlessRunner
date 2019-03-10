@@ -120,9 +120,10 @@ public class Segment : MonoBehaviour
 					return;
 				}
 			} while (usedObstaclesPositions.Contains(obstaclePos));
-
-			//TODO: temp
+			
 			int diff = RoundToFive(Random.Range(minDifficultyLevel, expectedDiff));
+			if (diff >= maxDifficultyLevel)
+				diff = maxDifficultyLevel;
 			if (diff == 0)
 			{
 				Debug.LogError("Can't find obstacle here: (" + transform.name + ')');

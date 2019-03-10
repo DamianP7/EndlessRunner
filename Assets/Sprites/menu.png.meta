@@ -16,6 +16,13 @@ TextureImporter:
     21300022: menu_pause
     21300024: menu_frame
     21300026: menu_replay
+    21300028: menu_gear_green
+    21300030: menu_replay_green
+    21300032: menu_up_green
+    21300034: menu_gear_yellow
+    21300036: menu_replay_yellow
+    21300038: menu_up_yellow
+    21300040: menu_button
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -384,6 +391,146 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 278cda874b244eb44b2deea2c1ecbb72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_gear_green
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 1774
+        width: 149
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8564e2ea1f787564dba6f81e28b294cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_replay_green
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 1767
+        width: 150
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b71a288d69571e48ba98a4251ab16da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_up_green
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 1773
+        width: 155
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be29beacf0fca54e8d9d8aff45d2601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_gear_yellow
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1645
+        width: 151
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd44a1a7e3292745b38c4ab937c07ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_replay_yellow
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 1638
+        width: 150
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c800da0634ff94c8305270ab72fec7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_up_yellow
+      rect:
+        serializedVersion: 2
+        x: 1389
+        y: 1644
+        width: 155
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 082f6c9fc0dd59a4f9da921c86f8c466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_button
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 1285
+        width: 273
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60ec6f0f3312aac4282e93126ca792ae
       vertices: []
       indices: 
       edges: []

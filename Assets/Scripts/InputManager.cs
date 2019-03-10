@@ -17,20 +17,27 @@ public class InputManager : MonoBehaviour
 
 	void JumpKeyboardController()
 	{
-		//jump
-		if (Input.GetButtonDown("Jump"))
+		if (GameManager.Instance.gameState == GameState.Playing)
 		{
-			playerMovement.JumpPressed();
+			//jump
+			if (Input.GetButtonDown("Jump"))
+			{
+				playerMovement.JumpPressed();
+			}
+			// button holding
+			if (Input.GetButton("Jump"))
+			{
+				playerMovement.JumpHold();
+			}
+			// button up
+			else if (Input.GetButtonUp("Jump"))
+			{
+				playerMovement.JumpButtonUp();
+			}
 		}
-		// button holding
-		if (Input.GetButton("Jump"))
+		if (Input.GetButtonDown("Cancel"))
 		{
-			playerMovement.JumpHold();
-		}
-		// button up
-		else if (Input.GetButtonUp("Jump"))
-		{
-			playerMovement.JumpButtonUp();
+			GameManager.Instance.Pause();
 		}
 	}
 
@@ -51,7 +58,6 @@ public class InputManager : MonoBehaviour
 
 	public void Replay()
 	{
-		SceneManager.LoadScene(0); 
-
+		SceneManager.LoadScene(1); 
 	}
 }
