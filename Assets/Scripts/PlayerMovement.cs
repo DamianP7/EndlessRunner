@@ -13,13 +13,11 @@ public enum PlayerMovementState
 public class PlayerMovement : MonoBehaviour
 {
 	public PlayerMovementState playerState;
-	[SerializeField] float jumpHeight, jumpSpeed, maxTimeInAir, fallingSpeed, timeFalling, jumpForce, jumpImpuls;
+	[SerializeField] float jumpHeight, jumpSpeed, maxTimeInAir, fallingSpeed, timeFalling, jumpForce, jumpImpuls, fallingForce;
 
 	float timeInAir, jumpPressedTime;
 	bool jumpHolding, doubleJumped;
 	Vector3 playerPositionJumping, playerPositionFalling;
-
-	public float mas;
 
 	private void Start()
 	{
@@ -36,17 +34,16 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (playerState == PlayerMovementState.Jumping)
 		{
+			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -fallingSpeed));
 			timeInAir += Time.deltaTime;
 			if (transform.position.y > playerPositionJumping.y + jumpHeight)
 			{
 				playerState = PlayerMovementState.Falling;
-				//GetComponent<Rigidbody2D>().gravityScale = mas;
 
 			}
 			else if (timeInAir > jumpPressedTime)
 			{
 				playerState = PlayerMovementState.Falling;
-				//GetComponent<Rigidbody2D>().gravityScale = mas;
 			}
 			else
 			{
@@ -59,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 		else if (playerState == PlayerMovementState.Falling)
 		{
+			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -fallingForce));
 		}
 	}
 
@@ -96,7 +94,6 @@ public class PlayerMovement : MonoBehaviour
 			playerState = PlayerMovementState.Jumping;
 			jumpHolding = true;
 			timeFalling = 0;
-			GetComponent<Rigidbody2D>().gravityScale = 1;
 			GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpImpuls), ForceMode2D.Impulse);
 		}

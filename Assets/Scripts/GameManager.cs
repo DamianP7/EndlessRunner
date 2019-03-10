@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 	public float speed;
 	public float time = 0;
 	int coins = 0;
+	public int timeToIncrementSpeed;
+	int timeToIncrement;
 	public int goldCoinValue, silverCoinValue;
 
 	public float mSpeed;
@@ -49,12 +51,22 @@ public class GameManager : MonoBehaviour
 	private void Awake()
 	{
 		gameState = GameState.Playing;
+		timeToIncrement = timeToIncrementSpeed;
 	}
 
 	private void Update()
 	{
-		time += Time.deltaTime * speed / mSpeed;
-		distanceText.text = Mathf.RoundToInt(time).ToString() + " m";
+		time += Time.deltaTime;
+		distanceText.text = Mathf.RoundToInt(time * speed / mSpeed).ToString() + " m";
+		if (time > timeToIncrement)
+		{
+			timeToIncrement += timeToIncrementSpeed;
+			speed += 0.1f;
+		}
+		if (DeveloperOptions.Instance.gameManagerCanvas.timeTotal)
+			DeveloperOptions.Instance.timeTotal.text = (time / 60).ToString("00") + (time % 60).ToString("00:00");
+		if (DeveloperOptions.Instance.gameManagerCanvas.speed)
+			DeveloperOptions.Instance.speed.text = speed.ToString();
 	}
 
 }

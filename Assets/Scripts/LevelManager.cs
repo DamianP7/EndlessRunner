@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
 
 	[SerializeField] float stopPositionX;
 	[SerializeField] int startDifficulty, difficultyIncrementValue, timeToIncrement, timeToNewSegment, diffTolerance; // TODO:
+	[SerializeField] bool developerMode;
 
 	int availableDifficulty, difficultyTotal, cycleNumber = 0;
 	float timeLeft;
@@ -53,18 +54,25 @@ public class LevelManager : MonoBehaviour
 
 	void FindNextSegment()
 	{
-		Debug.Log("Time to next segment: " + time);
+		if(DeveloperOptions.Instance.levelManagerLog.time)
+			Debug.Log("Time to next segment: " + time);
 		time = 0;
 		segments[lastSegment].StopMoving();
 
 		int diff = Mathf.RoundToInt(difficultyTotal / timeToNewSegment) + Random.Range(-diffTolerance, diffTolerance);
-		Debug.Log("		Levelmanager diff: " + diff);
+		if (diff < 0) diff = 0;
+
+		if (DeveloperOptions.Instance.levelManagerLog.difficulty)
+			Debug.Log("		Levelmanager diff: " + diff);
+
+		if (DeveloperOptions.Instance.levelManagerCanvas.difficulty)
+			DeveloperOptions.Instance.difficulty.text = diff.ToString();
 		int rand;
 
 		List<Segment> availableSegments = new List<Segment>();
 		for (int i = 0; i < segments.Length; i++)
 		{
-			if (segments[i].maxDifficultyLevel > diff)
+			if (segments[i].maxDifficultyLevel > diff && segments[i].minDifficultyLevel <= diff)
 				availableSegments.Add(segments[i]);
 		}
 
@@ -104,5 +112,7 @@ public class LevelManager : MonoBehaviour
 		availableDifficulty = startDifficulty + difficultyIncrementValue * cycleNumber;
 		difficultyTotal = availableDifficulty;
 		cycleNumber++;
+		if (developerMode)
+			availableDifficulty = difficultyTotal = 0;
 	}
 }

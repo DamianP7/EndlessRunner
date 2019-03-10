@@ -13,6 +13,15 @@ TextureImporter:
     21300016: barrel_weapons2
     21300018: log3
     21300020: bush1
+    21300022: box3
+    21300024: barrel_weapons3
+    21300026: barrel_weapons4
+    21300028: sheep1
+    21300030: sheep2
+    21300032: sign_arrow_big
+    21300034: sign_big
+    21300036: sign_small
+    21300038: sign_arrow_small
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -281,6 +290,186 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1c5affb8033b7c84d880bb40132d4c62
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: box3
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1307
+        width: 327
+        height: 326
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c202773fcea3dbe409227f4e60efdb2e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrel_weapons3
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 1309
+        width: 289
+        height: 440
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9090661eaf0e8a6448addd4a9ebce21e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrel_weapons4
+      rect:
+        serializedVersion: 2
+        x: 1737
+        y: 1309
+        width: 289
+        height: 444
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45bf35de93eff964395d37f8a3d07dd9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheep1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 952
+        width: 358
+        height: 337
+      alignment: 9
+      pivot: {x: 0.5, y: 0.010103401}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51becb9757e17c1449a1dc07b416a656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheep2
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 952
+        width: 326
+        height: 313
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ab43f8821cecc47a3fb638d5e5c25d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sign_arrow_big
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 853
+        width: 281
+        height: 435
+      alignment: 9
+      pivot: {x: 0.30045587, y: 0.006667284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 323e817f6a049334b9edc0040d685fdc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sign_big
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 853
+        width: 325
+        height: 437
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa79f601a51e4249b249310636bdbbe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sign_small
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 939
+        width: 323
+        height: 347
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 565aaa5fcfffe4948a93d12cf863736d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sign_arrow_small
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 939
+        width: 281
+        height: 353
+      alignment: 9
+      pivot: {x: 0.30733657, y: 0.010954514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdcbbbfb41ad524bb310b5b1129894e
       vertices: []
       indices: 
       edges: []

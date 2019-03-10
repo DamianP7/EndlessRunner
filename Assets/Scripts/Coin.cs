@@ -17,7 +17,6 @@ public class Coin : MonoBehaviour
 		{
 			value = GameManager.Instance.silverCoinValue;
 		}
-			gameObject.tag = "Coin";
 	}
 
 	public void PickUp()

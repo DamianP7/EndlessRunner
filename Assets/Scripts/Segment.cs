@@ -43,6 +43,9 @@ public class Segment : MonoBehaviour
 		if (maxCosmetics < 0)
 			minCosmetics = maxCosmetics = 0;
 
+		if (minDifficultyLevel < segmentDifficulty)
+			minDifficultyLevel = segmentDifficulty;
+
 		Debug.Log("	!--> " + gameObject.name + " validated");
 		cosmeticPositions = new List<Transform>();
 		obstaclePositions = new List<Transform>();
@@ -77,6 +80,7 @@ public class Segment : MonoBehaviour
 
 	public void SetupSegment(int expectedDiff)
 	{
+		int diffTotal = segmentDifficulty;
 		int cosmeticPos, obstaclePos;
 		int cosmeticsQuantity = Random.Range(minCosmetics, maxCosmetics);
 		expectedDiff -= segmentDifficulty;
@@ -99,7 +103,8 @@ public class Segment : MonoBehaviour
 			usedCosmetic.Add(cosmeticsManager.UseRandomElement());
 			usedCosmetic[i].transform.position = cosmeticPositions[cosmeticPos].position;
 
-			Debug.Log(usedCosmetic[i].name + " on pos " + cosmeticPositions[cosmeticPos].name + "(" + cosmeticPositions[cosmeticPos].parent.name + ")");
+			if(DeveloperOptions.Instance.segmentLog.environmentGeneration)
+				Debug.Log(usedCosmetic[i].name + " on pos " + cosmeticPositions[cosmeticPos].name + "(" + cosmeticPositions[cosmeticPos].parent.name + ")");
 		}
 
 		//int obstaclesQuantity = Random.Range(obstaclePositions.Count / 4, obstaclePositions.Count);
@@ -118,20 +123,24 @@ public class Segment : MonoBehaviour
 
 			//TODO: temp
 			int diff = RoundToFive(Random.Range(minDifficultyLevel, expectedDiff));
-			expectedDiff -= diff;
 			if (diff == 0)
 			{
 				Debug.LogError("Can't find obstacle here: (" + transform.name + ')');
 				break;
 			}
+			expectedDiff -= diff;
+			diffTotal += diff;
 			usedObstaclesPositions.Add(obstaclePos);
 			usedObstacles.Add(obstaclesManager.UseRandomElement(diff));
 			usedObstacles[usedObstacles.Count - 1].transform.position = obstaclePositions[obstaclePos].position;
 
-			Debug.Log(usedObstacles[usedObstacles.Count - 1].name + " on pos " + obstaclePositions[obstaclePos].name + "(" + obstaclePositions[obstaclePos].parent.name + ")");
+			if (DeveloperOptions.Instance.segmentLog.obstaclesGeneration)
+				Debug.Log(usedObstacles[usedObstacles.Count - 1].name + " on pos " + obstaclePositions[obstaclePos].name + "(" + obstaclePositions[obstaclePos].parent.name + ")");
 		}
+		if (DeveloperOptions.Instance.segmentCanvas.segmentDifficulty)
+			DeveloperOptions.Instance.segmentDifficulty.text = diffTotal.ToString();
 
-		List<IntTransformPair> temp;
+			List<IntTransformPair> temp;
 		if (segmentDifficulty == 0)
 		{
 			if (usedObstaclesPositions.Contains(0))
@@ -203,6 +212,15 @@ public class Segment : MonoBehaviour
 					usedCoins[usedCoins.Count - 1].transform.position = temp[0].transform.gameObject.transform.position;
 				}
 			}
+		}
+		if (DeveloperOptions.Instance.segmentLog.coinGeneration)
+		{
+			int value = 0;
+			foreach (GameObject item in usedCoins)
+			{
+				value += item.GetComponent<Coin>().value;
+			}
+			Debug.Log("Coins in segment " + transform.name + ": " + value);
 		}
 	}
 
