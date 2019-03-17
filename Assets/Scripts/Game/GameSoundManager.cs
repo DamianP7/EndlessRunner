@@ -27,7 +27,17 @@ public class GameSoundManager : MonoBehaviour
 		sound = PlayerPrefs.GetInt("Sound") > 0 ? true : false;
 
 		if (music)
+		{
 			StartCoroutine(FadeIn(musicSource, 7));
+			disabledMusic.SetActive(false);
+		}
+		else
+			disabledMusic.SetActive(true);
+		if (sound)
+		{
+			disabledSound.SetActive(false);
+		}
+		disabledSound.SetActive(true);
 	}
 
 	public void ToggleMusic()

@@ -30,7 +30,7 @@ public class LevelManager : MonoBehaviour
 
 		segments[lastSegment].transform.position = new Vector3(0, -0.1f, 0);
 		segments[lastSegment].SetupSegment(0);
-		segments[activeSegment].SetupSegment(5);    //TODO: temp const 5
+		segments[activeSegment].SetupSegment(10);    //TODO: temp const 10
 		segments[activeSegment].transform.position = new Vector3(20, -0.1f, 0);
 	}
 

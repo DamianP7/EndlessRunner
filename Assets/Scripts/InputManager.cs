@@ -58,6 +58,11 @@ public class InputManager : MonoBehaviour
 
 	public void Replay()
 	{
-		SceneManager.LoadScene(1); 
+		SceneManager.LoadScene(1);
+	}
+
+	public void GoToMenu()
+	{
+		SceneManager.LoadScene(0);
 	}
 }

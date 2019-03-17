@@ -32,8 +32,9 @@ public class GameManager : MonoBehaviour
 	int timeToIncrement;
 	public int goldCoinValue, silverCoinValue;
 	public float mSpeed;
+	bool gameOver = false;
 
-	[SerializeField] GameObject background, pausedWindow;
+	[SerializeField] GameObject background, pausedWindow, gameOverWindow;
 	[SerializeField] SettingsPanel settingsPanel;
 
 	public int Coins
@@ -73,6 +74,13 @@ public class GameManager : MonoBehaviour
 			if (DeveloperOptions.Instance.gameManagerCanvas.speed)
 				DeveloperOptions.Instance.speed.text = speed.ToString();
 		}
+		else if (gameState == GameState.GameOver && !gameOver)
+		{
+			gameOver = true;
+			background.SetActive(true);
+			gameOverWindow.SetActive(true);
+			settingsPanel.MovePanel();
+		}
 	}
 
 	public void Pause()
@@ -81,16 +89,15 @@ public class GameManager : MonoBehaviour
 		{
 			gameState = GameState.Paused;
 			background.SetActive(true);
-			pausedWindow.SetActive(false);
+			pausedWindow.SetActive(true);
 			settingsPanel.MovePanel();
 		}
 		else if (gameState == GameState.Paused)
 		{
 			gameState = GameState.Playing;
 			background.SetActive(false);
-			pausedWindow.SetActive(true);
+			pausedWindow.SetActive(false);
 			settingsPanel.MovePanel();
 		}
 	}
-
 }

@@ -8,43 +8,49 @@ public class SettingsPanel : MonoBehaviour
 	[SerializeField] float panelSpeed, openedHeight, closedHeight;
 
 	bool panelOpened = false;
-	[SerializeField] bool reversed;
-
-	int dir;
+	[SerializeField] bool downDirection;
 
 	private void Awake()
 	{
-	
+		closedHeight = panel.anchoredPosition.y;
+		if (downDirection)
+		{
+			openedHeight = panel.anchoredPosition.y - panel.sizeDelta.y;
+		}
+		else
+			openedHeight = panel.anchoredPosition.y + panel.sizeDelta.y;
+
+		Debug.Log("openedHeight: " + openedHeight + "	closedHeight: " + closedHeight);
 	}
 
 	private void Update()
 	{
-		Debug.Log("panel " + '(' + panelOpened + "): " + panel.position);
+	Debug.Log("panel " + '(' + panelOpened + "): " + panel.position);
 
-		if (reversed)
+		if (downDirection)
 		{
 			if (panelOpened)
 			{
-				if (panel.position.y > openedHeight)
-					panel.SetPositionAndRotation(new Vector3(panel.position.x, panel.position.y - panelSpeed), new Quaternion());
+				if (panel.anchoredPosition.y > openedHeight)
+					panel.position = new Vector3(panel.position.x, panel.position.y - panelSpeed);
 			}
 			else if (!panelOpened)
 			{
-				if (panel.position.y < closedHeight)
-					panel.SetPositionAndRotation(new Vector3(panel.position.x, panel.position.y + panelSpeed), new Quaternion());
+				if (panel.anchoredPosition.y < closedHeight)
+					panel.position = new Vector3(panel.position.x, panel.position.y + panelSpeed);
 			}
 		}
 		else
 		{
 			if (panelOpened)
 			{
-				if (panel.position.y < openedHeight)
-					panel.SetPositionAndRotation(new Vector3(panel.position.x, panel.position.y + panelSpeed * dir), new Quaternion());
+				if (panel.anchoredPosition.y < openedHeight)
+					panel.position = new Vector3(panel.position.x, panel.position.y + panelSpeed);
 			}
 			else if (!panelOpened)
 			{
-				if (panel.position.y > closedHeight)
-					panel.SetPositionAndRotation(new Vector3(panel.position.x, panel.position.y - panelSpeed * dir), new Quaternion());
+				if (panel.anchoredPosition.y > closedHeight)
+					panel.position = new Vector3(panel.position.x, panel.position.y - panelSpeed);
 			}
 		}
 	}
