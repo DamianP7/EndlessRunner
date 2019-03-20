@@ -92,7 +92,7 @@ public class Segment : MonoBehaviour
 			{
 				cosmeticPos = Random.Range(0, cosmeticPositions.Count);
 				check++;
-				if (check > 100)
+				if (check > 10)
 				{
 					Debug.LogError("Error in SetupSegment(first do-while) in " + transform.name);
 					return;
@@ -114,7 +114,7 @@ public class Segment : MonoBehaviour
 			{
 				obstaclePos = Random.Range(0, obstaclePositions.Count);
 				check++;
-				if (check > 100)
+				if (check > 10)
 				{
 					Debug.LogError("Error in SetupSegment(second do-while) in " + transform.name);
 					return;

@@ -69,23 +69,22 @@ public class LevelManager : MonoBehaviour
 			DeveloperOptions.Instance.difficulty.text = diff.ToString();
 		int rand;
 
-		List<Segment> availableSegments = new List<Segment>();
-		for (int i = 0; i < segments.Length; i++)
-		{
-			if (segments[i].maxDifficultyLevel > diff && segments[i].minDifficultyLevel <= diff)
-				availableSegments.Add(segments[i]);
-		}
-
-		if (availableSegments.Count == 0)
+		List<Segment> availableSegments;
+		int numTry = 0;
+		do
 		{
 			availableSegments = new List<Segment>();
-			Debug.LogError("No available segments");
 			for (int i = 0; i < segments.Length; i++)
 			{
-				if (segments[i].maxDifficultyLevel > 0)
+				if (segments[i].maxDifficultyLevel >= diff && segments[i].minDifficultyLevel <= diff)
 					availableSegments.Add(segments[i]);
 			}
-		}
+			if (numTry > 0)
+				Debug.LogError("No available segments");
+			else if (numTry > 10)
+				break;
+			numTry++;
+		} while (availableSegments.Count == 0);
 
 		int check = 0;
 		do

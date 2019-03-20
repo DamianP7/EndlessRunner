@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+	[SerializeField] GameObject leaderboard;
 
 	private void Awake()
 	{
@@ -19,5 +20,15 @@ public class MenuController : MonoBehaviour
 	public void StartGame()
 	{
 		SceneManager.LoadScene(1);
+	}
+
+	public void ShowLeaderboard()
+	{
+		leaderboard.SetActive(true);
+	}
+
+	public void Exit()
+	{
+		Application.Quit();
 	}
 }

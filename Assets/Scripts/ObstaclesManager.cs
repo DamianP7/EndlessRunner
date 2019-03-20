@@ -27,11 +27,22 @@ public class ObstaclesManager : MonoBehaviour
 		Debug.Log("diff: " + diff);
 		List<Obstacle> availableObstacles = new List<Obstacle>();
 
-		foreach (var item in obstacles)
+		int check = 0;
+		do
 		{
-			if (item.difficultyLevel == diff)
-				availableObstacles.Add(item);
-		}
+			foreach (var item in obstacles)
+			{
+				if (item.difficultyLevel == diff)
+					availableObstacles.Add(item);
+			}
+
+			diff -= 5;
+			check++;
+			if (check > 10)
+				break;
+
+		} while (availableObstacles.Count == 0);
+
 
 		int index = Random.Range(0, availableObstacles.Count);
 

@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 	public float groundLevel;
 	public float speed;
 	public float time = 0;
-	int coins = 0;
+	int coins = 0, distance = 0;
 	public int timeToIncrementSpeed;
 	int timeToIncrement;
 	public int goldCoinValue, silverCoinValue;
@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
 	{
 		gameState = GameState.Playing;
 		timeToIncrement = timeToIncrementSpeed;
+		Coins = 0;
 	}
 
 	private void Update()
@@ -63,7 +64,8 @@ public class GameManager : MonoBehaviour
 		if (gameState == GameState.Playing)
 		{
 			time += Time.deltaTime;
-			distanceText.text = Mathf.RoundToInt(time * speed / mSpeed).ToString() + " m";
+			distance = Mathf.RoundToInt(time * speed / mSpeed);
+			distanceText.text = distance.ToString() + " m";
 			if (time > timeToIncrement)
 			{
 				timeToIncrement += timeToIncrementSpeed;
@@ -80,6 +82,8 @@ public class GameManager : MonoBehaviour
 			background.SetActive(true);
 			gameOverWindow.SetActive(true);
 			settingsPanel.MovePanel();
+			if (SaveManager.Instance != null)
+				SaveManager.Instance.AddNewRecord(coins, distance);
 		}
 	}
 

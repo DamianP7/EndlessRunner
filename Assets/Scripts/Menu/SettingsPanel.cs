@@ -20,12 +20,12 @@ public class SettingsPanel : MonoBehaviour
 		else
 			openedHeight = panel.anchoredPosition.y + panel.sizeDelta.y;
 
-		Debug.Log("openedHeight: " + openedHeight + "	closedHeight: " + closedHeight);
+		//Debug.Log("openedHeight: " + openedHeight + "	closedHeight: " + closedHeight);
 	}
 
 	private void Update()
 	{
-	Debug.Log("panel " + '(' + panelOpened + "): " + panel.position);
+	//Debug.Log("panel " + '(' + panelOpened + "): " + panel.position);
 
 		if (downDirection)
 		{
